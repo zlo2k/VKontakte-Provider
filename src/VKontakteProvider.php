@@ -35,10 +35,15 @@ class VKontakteProvider extends AbstractProvider
     protected $scopes = ['email'];
 
     /**
+     * API version used to access VK.com API
+     */
+    const API_VERSION = '5.69';
+    
+    /**
      * {@inheritdoc}
      */
     protected $parameters = [
-        'v' => '5.69',
+        'v' => self::API_VERSION,
     ];
 
     /**
@@ -65,7 +70,11 @@ class VKontakteProvider extends AbstractProvider
     protected function getUserByToken(string $token)
     {
         $response = $this->getHttpClient()->get(
-            'https://api.vk.com/method/users.get?access_token=' . $token . '&fields=' . implode(',', $this->fields) . $this->lang . '&v=3.0'
+		    'https://api.vk.com/method/users.get?'.http_build_query([
+		        'access_token' => $token,
+		        'fields' => implode(',', $this->fields),
+		        'v' => self::API_VERSION,
+		    ]) . $this->lang;
         );
         $contents = $response->getBody()->getContents();
         $response = json_decode($contents, true);
