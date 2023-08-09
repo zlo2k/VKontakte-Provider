@@ -1,5 +1,5 @@
 {
-    "name": "socialite-manager/vkontakte-provider",
+    "name": "zlo2k/vkontakte-provider",
     "description": "VKontakte provider",
     "license": "MIT",
     "require": {
