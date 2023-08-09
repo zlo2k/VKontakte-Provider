@@ -3,7 +3,7 @@
     "description": "VKontakte provider",
     "license": "MIT",
     "require": {
-        "socialite-manager/socialite": "^1.0"
+        "zlo2k/socialite": "^1.0"
     },
     "require-dev": {
         "phpstan/phpstan": "^0.9.2",
