@@ -38,7 +38,7 @@ class VKontakteProvider extends AbstractProvider
      * API version used to access VK.com API
      */
     const API_VERSION = '5.69';
-    
+
     /**
      * {@inheritdoc}
      */
@@ -74,8 +74,7 @@ class VKontakteProvider extends AbstractProvider
 		        'access_token' => $token,
 		        'fields' => implode(',', $this->fields),
 		        'v' => self::API_VERSION,
-		    ]) . $this->lang;
-        );
+		    ]) . $this->lang);
         $contents = $response->getBody()->getContents();
         $response = json_decode($contents, true);
         if (!is_array($response) || !isset($response['response'][0])) {
